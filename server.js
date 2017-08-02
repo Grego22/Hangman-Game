@@ -1,7 +1,7 @@
 const express = require('express')
 const mustacheExpress = require('mustache-express')
 const bodyParser = require('body-parser')
-const sessions = require('express-sessions')
+const session = require('express-session')
 const fs = require('fs')
 
 const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n")
