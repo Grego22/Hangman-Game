@@ -8,6 +8,13 @@ const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().sp
 
 const app = express()
 
+app.use(
+  expressSession({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true
+  })
+
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: false}))
 
