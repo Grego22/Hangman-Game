@@ -20,10 +20,15 @@ Math.floor(Math.random() * words.length)
 
 /* Seems the main challenge in this assignment is how to generate a random word
 A for loop would most likely be the best way of going about this.
-
 after getting the random word, have to figure out a method to break the word down into letters.
-
 */
+for (var i = 0; i < words.length; i++) {
+  words[i]
+}
+
+// Seems like another challenge is express sessions. Ive been  reading up on it, but
+// not very comfortable with it right now.  Think it is integral in storing a user's
+// "guessed letters "
 
 // app.get('/', (request, response) =>{
 //
