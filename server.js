@@ -15,7 +15,25 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
+// random number
+Math.floor(Math.random() * words.length)
+
 /* Seems the main challenge in this assignment is how to generate a random word
 A for loop would most likely be the best way of going about this.
 
 after getting the random word, have to figure out a method to break the word down into letters.
+
+*/
+
+// app.get('/', (request, response) =>{
+//
+//   response.render('homepage', {todoListForTheBrowser: taskList, completedTasksForTheBrowser: completedTasks})
+//   // this is confusing, have to revisit
+// })
+// app.post('/markComplete', (request, response)=>{
+//   console.log(request.body)
+//   response.send('marking something complete')
+
+app.listen(7777, ()=> {
+    console.log('Feeling good on highway 7777')
+})
