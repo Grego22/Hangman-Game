@@ -28,22 +28,29 @@ let lettersGuessed = []
 let randomWord = words[Math.floor(Math.random() * words.length)]
 
 
-let gameData = {
-  progress: [],
-  guess: [],
-  numberGuesses: 8,
-  messageToUser: "Take your best shot and pick a letter!"
-}
+// let gameData = {
+//   progress: [],
+//   guess: [],
+//   numberGuesses: 8,
+//   messageToUser: "Take your best shot and pick a letter!"
+// }
 //for loop for generating individual letters of the randomWord
 app.get('/', (request, response) =>{
     let correctGuess = []
 
     for (var i = 0; i < randomWord.length; i++) {
-  randomWord[i]
-  let mysteryLetter  = randomWord[i]
-  console.log(mysteryLetter);
-}
-response.render('index')
+      let mysteryLetter  = randomWord[i]
+
+      if (lettersGuessed.includes(mysteryLetter)){
+        correctGuess.push(mysteryLetter)
+      } else{
+        correctGuess.push('_')
+      }
+    }
+
+  //console.log(mysteryLetter);
+  const lettersFound = correctGuess.join("")
+  response.render('index', {lettersFound, lettersGuessed})
 })
 // Seems like another challenge is express sessions. Ive been  reading up on it, but
 // not very comfortable with it right now.  Think it is integral in storing a user's
