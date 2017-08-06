@@ -3,19 +3,22 @@ const mustacheExpress = require('mustache-express')
 const bodyParser = require('body-parser')
 const expressSession = require('express-session')
 const fs = require('fs')
+const expressValidator = require('express-validator')
 
 const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n")
 
 const app = express()
 
-app.use(
-  expressSession({
-    secret: "kinky wizards",
-    resave: false,
-    saveUninitialized: true
-  }))
+// app.use(
+//   expressSession({
+//     secret: "kinky wizards",
+//     resave: false,
+//     saveUninitialized: true
+//   }))
 
+app.use(expressValidator())
 app.use(express.static('public'))
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.engine('mustache', mustacheExpress())
@@ -26,6 +29,7 @@ app.set('view engine', 'mustache')
 let lettersGuessed = []
 // random number
 let randomWord = words[Math.floor(Math.random() * words.length)]
+console.log(randomWord);
 
 
 // let gameData = {
