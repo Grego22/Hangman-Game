@@ -26,7 +26,12 @@ app.set('view engine', 'mustache')
 let randomWord = words[Math.floor(Math.random() * words.length)]
 
 
-
+let gameData = {
+  progress: [],
+  guess: [],
+  numberGuesses: 8,
+  messageToUser: "Take your best shot and pick a letter!"
+}
 //for loop for generating individual letters of the randomWord
 for (var i = 0; i < randomWord.length; i++) {
   randomWord[i]
