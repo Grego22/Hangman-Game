@@ -22,6 +22,8 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
+//declare a variable for letters guessed
+let lettersGuessed = []
 // random number
 let randomWord = words[Math.floor(Math.random() * words.length)]
 
@@ -33,19 +35,20 @@ let gameData = {
   messageToUser: "Take your best shot and pick a letter!"
 }
 //for loop for generating individual letters of the randomWord
-for (var i = 0; i < randomWord.length; i++) {
+app.get('/', (request, response) =>{
+    let correctGuess = []
+
+    for (var i = 0; i < randomWord.length; i++) {
   randomWord[i]
-  let mysteryWord = randomWord[i]
-  console.log(mysteryWord);
+  let mysteryLetter  = randomWord[i]
+  console.log(mysteryLetter);
 }
+response.render('index')
+})
 // Seems like another challenge is express sessions. Ive been  reading up on it, but
 // not very comfortable with it right now.  Think it is integral in storing a user's
 // "guessed letters "
 
-app.get('/', (request, response) =>{
-
-  response.render('index')
-})
 app.post('/guess', (request, response)=>{
   console.log(request.body)
   response.send('marking something complete')
