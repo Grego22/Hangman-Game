@@ -9,11 +9,16 @@
     <img src="" alt="Hangman picture here ">
     <h3>Mystery Game of Chance!</h3>
       <p>You have x guess left</p>
-    <form class="" action="/guess" method="post">
-      <input type="text" name="description" value="" placeholder="description">
-      <button type="button" name="button">Submit</button>
+
+    <form class="" action="/" method="post">
+      <input type="text" name="letter" value="" placeholder="Guess a letter">
+      <button type="submit" name="button">Submit</button>
     </form>
       <p>Letters Guessed </p>
+        <p>{{#lettersGuessed}}
+           {{.}}
+          {{/lettersGuessed}}
+        </p>
       <hr>
   </body>
 </html>

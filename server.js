@@ -47,11 +47,20 @@ app.get('/', (request, response) =>{
         correctGuess.push('_')
       }
     }
-
   //console.log(mysteryLetter);
   const lettersFound = correctGuess.join("")
   response.render('index', {lettersFound, lettersGuessed})
 })
+
+  app.post("/", (request, response)=>{
+    const storeLetter = request.body.letter
+
+    const guessedLetter = false
+    if (!guessedLetter){
+      lettersGuessed.push(storeLetter)
+    }
+    response.redirect('/')
+  })
 // Seems like another challenge is express sessions. Ive been  reading up on it, but
 // not very comfortable with it right now.  Think it is integral in storing a user's
 // "guessed letters "
